@@ -4,6 +4,7 @@ public class FruitManager : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private GameObject fruitPrefab;
+    [SerializeField] private LineRenderer fruitSpawnLine;
 
     [Header(" Settings ")]
     [SerializeField] private float fruitsYSpawnPosition;
@@ -13,23 +14,79 @@ public class FruitManager : MonoBehaviour
     
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ManagePlayerInput();
-        }
+        ManagePlayerInput();
+    }
+
+    private void Start()
+    {
+        HideLine();
     }
 
     private void ManagePlayerInput()
     {
-        Vector2 spawnPosition = GetClickedWorldPosition();
-        spawnPosition.y = fruitsYSpawnPosition;
+        if (Input.GetMouseButtonDown(0))
+        {
+            MouseDownCallback();
+        }
+        else if (Input.GetMouseButton(0))
+        {
+            MouseDragCallback();
+        }
+        else if (Input.GetMouseButtonUp(0))
+        {
+            MouseUpCallback();
+        }
 
-        Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
+        SpawnFruit();
+    }
+
+    private void MouseDownCallback()
+    {
+        DisplayLine();
+
+        fruitSpawnLine.SetPosition(0, GetSpawnPosition());
+        fruitSpawnLine.SetPosition(1, GetSpawnPosition() + Vector2.down * 15);
+    }
+
+    private void MouseDragCallback()
+    {
+
+    }
+
+    private void MouseUpCallback()
+    {
+
+    }
+
+    private void SpawnFruit()
+    {
+        Vector2 spawnPosition = GetSpawnPosition();
+        //Instantiate(fruitPrefab, spawnPosition, Quaternion.identity);
     }
 
     private Vector2 GetClickedWorldPosition()
     {
-        return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (!(Input.mousePosition.x < 0 || Input.mousePosition.x >= Screen.width || Input.mousePosition.y < 0 || Input.mousePosition.y >= Screen.height))
+        {
+            return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        }
+
+        return Vector2.up;
+    }
+    private Vector2 GetSpawnPosition()
+    {
+        Vector2 worldClickedPosition = GetClickedWorldPosition();
+        worldClickedPosition.y = fruitsYSpawnPosition;
+        return worldClickedPosition;
+    }
+    private void HideLine()
+    {
+        fruitSpawnLine.enabled = false;
+    }
+
+    private void DisplayLine()
+    {
+        fruitSpawnLine.enabled = true;
     }
 
 #if UNITY_EDITOR
