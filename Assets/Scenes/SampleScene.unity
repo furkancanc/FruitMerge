@@ -315,7 +315,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 710433482}
   - {fileID: 1715091124}
@@ -337,8 +337,18 @@ MonoBehaviour:
   - {fileID: 679900480023046158, guid: 754dd3b7c44cc544fb8e5a2ee3480b71, type: 3}
   - {fileID: 679900480023046158, guid: c3b9acdd37f03874780c7aee7de22bb9, type: 3}
   - {fileID: 679900480023046158, guid: 6cce9c90df7433446a8becfcbab1e9e1, type: 3}
+  - {fileID: 679900480023046158, guid: db5b7eba58e8a1a448ea35acf1586adc, type: 3}
+  - {fileID: 679900480023046158, guid: e87b4b77ee5e3684db33cf18eed30bb4, type: 3}
+  - {fileID: 679900480023046158, guid: 139666ae85789ab42a2ddc01ed43310c, type: 3}
+  - {fileID: 679900480023046158, guid: bd033caa605ccbb4f94bdf9903fdb74a, type: 3}
+  - {fileID: 679900480023046158, guid: 06ea664f674c81b46a9cfac721f8905c, type: 3}
+  - {fileID: 679900480023046158, guid: 85d4cdbf5bafbbe47a41ea8e39fbd312, type: 3}
   spawnableFruits:
   - {fileID: 679900480023046158, guid: 754dd3b7c44cc544fb8e5a2ee3480b71, type: 3}
+  - {fileID: 679900480023046158, guid: c3b9acdd37f03874780c7aee7de22bb9, type: 3}
+  - {fileID: 679900480023046158, guid: 6cce9c90df7433446a8becfcbab1e9e1, type: 3}
+  - {fileID: 679900480023046158, guid: db5b7eba58e8a1a448ea35acf1586adc, type: 3}
+  - {fileID: 679900480023046158, guid: e87b4b77ee5e3684db33cf18eed30bb4, type: 3}
   fruitsParent: {fileID: 1715091124}
   fruitSpawnLine: {fileID: 710433483}
   fruitsYSpawnPosition: 3.5
