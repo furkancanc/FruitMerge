@@ -15,6 +15,9 @@ public class FruitManager : MonoBehaviour
     private bool canControl;
     private bool isControlling;
 
+    [Header(" Next Fruit Settings ")]
+    private int nextFruitIndex;
+
     [Header(" Debug ")]
     [SerializeField] private bool enableGizmos;
     private void Awake()
@@ -29,6 +32,8 @@ public class FruitManager : MonoBehaviour
 
     private void Start()
     {
+        SetNextFruitIndex();
+
         canControl = true;
         HideLine();
     }
@@ -99,11 +104,21 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
-        Fruit fruitToInstantiate = spawnableFruits[Random.Range(0, spawnableFruits.Length)];
+        Fruit fruitToInstantiate = spawnableFruits[nextFruitIndex];
 
         currentFruit = Instantiate(fruitToInstantiate, spawnPosition, Quaternion.identity, fruitsParent);
+        SetNextFruitIndex();
     }
 
+    private void SetNextFruitIndex()
+    {
+        nextFruitIndex = Random.Range(0, spawnableFruits.Length);
+    }
+
+    public string GetNextFruitName()
+    {
+        return spawnableFruits[nextFruitIndex].name;
+    }
 
     private Vector2 GetClickedWorldPosition()
     {
