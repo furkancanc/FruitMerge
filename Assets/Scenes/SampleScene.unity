@@ -333,8 +333,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fruitPrefabs:
-  - {fileID: 679900480023046158, guid: 754dd3b7c44cc544fb8e5a2ee3480b71, type: 3}
-  - {fileID: 679900480023046158, guid: c3b9acdd37f03874780c7aee7de22bb9, type: 3}
   - {fileID: 679900480023046158, guid: 6cce9c90df7433446a8becfcbab1e9e1, type: 3}
   fruitSpawnLine: {fileID: 710433483}
   fruitsYSpawnPosition: 3.5
@@ -751,6 +749,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 462959529}
+  - {fileID: 2042123520}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1925074321
@@ -823,6 +822,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2408756925125564717, guid: 31f98d3ffef4b8e40aea323e75f76028, type: 3}
   m_PrefabInstance: {fileID: 7525708942011292016}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2042123519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2042123520}
+  - component: {fileID: 2042123521}
+  m_Layer: 0
+  m_Name: Merge Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2042123520
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042123519}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867364181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2042123521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042123519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5bf825875a5fef4589f6313d0976f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2060538602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2408756925125564717, guid: 31f98d3ffef4b8e40aea323e75f76028, type: 3}

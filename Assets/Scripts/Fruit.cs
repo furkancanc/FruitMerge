@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    [Header(" Data ")]
+    [SerializeField] private FruitType fruitType;
+
     [Header(" Actions ")]
     public static Action<Fruit> onCollisionWithFruit;
 
@@ -30,9 +33,19 @@ public class Fruit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.TryGetComponent(out Fruit fruit))
+        if (collision.collider.TryGetComponent(out Fruit otherFruit))
         {
+            if (otherFruit.GetFruitType() != fruitType)
+            {
+                return;
+            }
+
             onCollisionWithFruit?.Invoke(this);
         }
     }
+    public FruitType GetFruitType()
+    {
+        return fruitType;
+    }
+
 }
