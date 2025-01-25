@@ -23,7 +23,7 @@ public class Fruit : MonoBehaviour
 
     public void EnablePhysics()
     {
-        GetComponent<CircleCollider2D>().enabled = true;
+        GetComponent<Collider2D>().enabled = true;
         GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
     }
 
