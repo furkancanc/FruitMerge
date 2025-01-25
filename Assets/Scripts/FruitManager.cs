@@ -11,6 +11,7 @@ public class FruitManager : MonoBehaviour
 
     [Header(" Settings ")]
     [SerializeField] private float fruitsYSpawnPosition;
+    [SerializeField] private float spawnDelay;
     private bool canControl;
     private bool isControlling;
 
@@ -39,8 +40,6 @@ public class FruitManager : MonoBehaviour
             ManagePlayerInput();
         }
     }
-
-    
 
     private void ManagePlayerInput()
     {
@@ -86,8 +85,12 @@ public class FruitManager : MonoBehaviour
     private void MouseUpCallback()
     {
         HideLine();
-        currentFruit.EnablePhysics();
 
+        if (currentFruit != null)
+        {
+            currentFruit.EnablePhysics();
+        }
+        
         canControl = false;
         isControlling = false;
         StartControlTimer();
@@ -136,7 +139,7 @@ public class FruitManager : MonoBehaviour
 
     private void StartControlTimer()
     {
-        Invoke("StopControlTimer", .5f);
+        Invoke("StopControlTimer", spawnDelay);
     }
 
     private void StopControlTimer()

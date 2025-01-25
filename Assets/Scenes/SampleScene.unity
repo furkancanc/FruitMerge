@@ -352,6 +352,7 @@ MonoBehaviour:
   fruitsParent: {fileID: 1715091124}
   fruitSpawnLine: {fileID: 710433483}
   fruitsYSpawnPosition: 3.5
+  spawnDelay: 0.1
   enableGizmos: 0
 --- !u!1 &479407116
 GameObject:
