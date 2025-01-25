@@ -4,6 +4,8 @@ public class FruitManager : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private Fruit[] fruitPrefabs;
+    [SerializeField] private Fruit[] spawnableFruits;
+    [SerializeField] private Transform fruitsParent;
     [SerializeField] private LineRenderer fruitSpawnLine;
     private Fruit currentFruit;
 
@@ -17,6 +19,11 @@ public class FruitManager : MonoBehaviour
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        MergeManager.onMergeProcessed -= MergeProcessedCallback;
     }
 
     private void Start()
@@ -89,7 +96,9 @@ public class FruitManager : MonoBehaviour
     private void SpawnFruit()
     {
         Vector2 spawnPosition = GetSpawnPosition();
-        currentFruit = Instantiate(fruitPrefabs[Random.Range(0, fruitPrefabs.Length)], spawnPosition, Quaternion.identity);
+        Fruit fruitToInstantiate = spawnableFruits[Random.Range(0, spawnableFruits.Length)];
+
+        currentFruit = Instantiate(fruitToInstantiate, spawnPosition, Quaternion.identity, fruitsParent);
     }
 
 
@@ -149,7 +158,7 @@ public class FruitManager : MonoBehaviour
 
     private void SpawnMergedFruit(Fruit fruit, Vector2 spawnPosition)
     {
-        Fruit fruitInstance = Instantiate(fruit, spawnPosition, Quaternion.identity);
+        Fruit fruitInstance = Instantiate(fruit, spawnPosition, Quaternion.identity, fruitsParent);
         fruitInstance.EnablePhysics();
     }
 
