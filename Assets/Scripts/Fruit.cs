@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
+    [Header(" Elements ")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
     [Header(" Data ")]
     [SerializeField] private FruitType fruitType;
 
@@ -49,4 +52,8 @@ public class Fruit : MonoBehaviour
         return fruitType;
     }
 
+    public Sprite GetSprite()
+    {
+        return spriteRenderer.sprite;
+    }
 }

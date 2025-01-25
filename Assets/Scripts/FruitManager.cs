@@ -120,6 +120,11 @@ public class FruitManager : MonoBehaviour
         return spawnableFruits[nextFruitIndex].name;
     }
 
+    public Sprite GetNextFruitSprite()
+    {
+        return spawnableFruits[nextFruitIndex].GetSprite();
+    }
+
     private Vector2 GetClickedWorldPosition()
     {
         if (!(Input.mousePosition.x < 0 || Input.mousePosition.x >= Screen.width || Input.mousePosition.y < 0 || Input.mousePosition.y >= Screen.height))
