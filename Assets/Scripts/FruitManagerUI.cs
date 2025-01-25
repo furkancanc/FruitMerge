@@ -9,15 +9,23 @@ public class FruitManagerUI : MonoBehaviour
     [SerializeField] private Image nextFruitImage;
     [SerializeField] private TextMeshProUGUI nextFruitText;
     private FruitManager fruitManager;
+    private void Awake()
+    {
+        FruitManager.onNextFruitIndexSet += UpdateNextFruitImage;    
+    }
 
     private void Start()
     {
-        fruitManager = GetComponent<FruitManager>();
+        //fruitManager = GetComponent<FruitManager>();
     }
 
-    private void Update()
+    private void UpdateNextFruitImage()
     {
-        nextFruitText.text = fruitManager.GetNextFruitName();
+        if (fruitManager == null)
+        {
+            fruitManager = GetComponent<FruitManager>();
+        }
+
         nextFruitImage.sprite = fruitManager.GetNextFruitSprite();
     }
 }

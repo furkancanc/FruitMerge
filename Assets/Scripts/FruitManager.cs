@@ -1,4 +1,7 @@
+using System;
 using UnityEngine;
+
+using Random = UnityEngine.Random;
 
 public class FruitManager : MonoBehaviour
 {
@@ -20,6 +23,9 @@ public class FruitManager : MonoBehaviour
 
     [Header(" Debug ")]
     [SerializeField] private bool enableGizmos;
+
+    [Header(" Actions ")]
+    public static Action onNextFruitIndexSet;
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallback;
@@ -113,6 +119,7 @@ public class FruitManager : MonoBehaviour
     private void SetNextFruitIndex()
     {
         nextFruitIndex = Random.Range(0, spawnableFruits.Length);
+        onNextFruitIndexSet?.Invoke();
     }
 
     public string GetNextFruitName()
