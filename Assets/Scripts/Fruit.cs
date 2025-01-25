@@ -7,7 +7,7 @@ public class Fruit : MonoBehaviour
     [SerializeField] private FruitType fruitType;
 
     [Header(" Actions ")]
-    public static Action<Fruit> onCollisionWithFruit;
+    public static Action<Fruit, Fruit> onCollisionWithFruit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,7 +40,7 @@ public class Fruit : MonoBehaviour
                 return;
             }
 
-            onCollisionWithFruit?.Invoke(this);
+            onCollisionWithFruit?.Invoke(this, otherFruit);
         }
     }
     public FruitType GetFruitType()

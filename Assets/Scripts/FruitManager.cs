@@ -14,7 +14,17 @@ public class FruitManager : MonoBehaviour
 
     [Header(" Debug ")]
     [SerializeField] private bool enableGizmos;
-    
+    private void Awake()
+    {
+        MergeManager.onMergeProcessed += MergeProcessedCallback;
+    }
+
+    private void Start()
+    {
+        canControl = true;
+        HideLine();
+    }
+
     private void Update()
     {
         if (canControl)
@@ -23,11 +33,7 @@ public class FruitManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        canControl = true;
-        HideLine();
-    }
+    
 
     private void ManagePlayerInput()
     {
@@ -127,6 +133,24 @@ public class FruitManager : MonoBehaviour
     private void StopControlTimer()
     {
         canControl = true;
+    }
+
+    private void MergeProcessedCallback(FruitType fruitType, Vector2 spawnPosition)
+    {
+        for (int i = 0; i < fruitPrefabs.Length; ++i)
+        {
+            if (fruitPrefabs[i].GetFruitType() == fruitType)
+            {
+                SpawnMergedFruit(fruitPrefabs[i], spawnPosition);
+                break;
+            }
+        }
+    }
+
+    private void SpawnMergedFruit(Fruit fruit, Vector2 spawnPosition)
+    {
+        Fruit fruitInstance = Instantiate(fruit, spawnPosition, Quaternion.identity);
+        fruitInstance.EnablePhysics();
     }
 
 #if UNITY_EDITOR
