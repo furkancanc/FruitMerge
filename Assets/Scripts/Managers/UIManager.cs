@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.onGameStateChanged -= GameStateChangedCallback;
     }
 
     private void Start()
@@ -58,5 +64,10 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SetGameState();
         SetGame();
+    }
+
+    public void NextButtonCallback()
+    {
+        SceneManager.LoadScene(0);
     }
 }
