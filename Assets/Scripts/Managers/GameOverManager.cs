@@ -120,5 +120,7 @@ public class GameOverManager : MonoBehaviour
     {
         Debug.Log("Game Over!");
         isGameOver = true;
+
+        GameManager.instance.SetGameOverState();
     }
 }

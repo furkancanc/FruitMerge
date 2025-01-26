@@ -7,9 +7,30 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gamePanel;
     [SerializeField] private GameObject gameOverPanel;
 
+    private void Awake()
+    {
+        GameManager.onGameStateChanged += GameStateChangedCallback;
+    }
+
     private void Start()
     {
         SetMenu();
+    }
+
+    private void GameStateChangedCallback(GameState gameState)
+    {
+        switch (gameState)
+        {
+            case GameState.Menu:
+                SetMenu();
+                break;
+            case GameState.Game:
+                SetGame();
+                break;
+            case GameState.GameOver:
+                SetGameOver();
+                break;
+        }
     }
 
     private void SetMenu()
@@ -31,5 +52,11 @@ public class UIManager : MonoBehaviour
         gameOverPanel.SetActive(true);
         menuPanel.SetActive(false);
         gamePanel.SetActive(false);
+    }
+
+    public void PlayButtonCallback()
+    {
+        GameManager.instance.SetGameState();
+        SetGame();
     }
 }

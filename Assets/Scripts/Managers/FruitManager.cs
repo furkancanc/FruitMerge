@@ -46,6 +46,11 @@ public class FruitManager : MonoBehaviour
 
     private void Update()
     {
+        if (!GameManager.instance.IsGameState())
+        {
+            return;
+        }
+
         if (canControl)
         {
             ManagePlayerInput();
