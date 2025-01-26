@@ -1252,6 +1252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deadLine: {fileID: 2009237251}
   fruitsParent: {fileID: 1715091124}
+  durationThreshold: 3
 --- !u!1 &1715091123
 GameObject:
   m_ObjectHideFlags: 0
