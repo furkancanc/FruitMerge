@@ -7,7 +7,6 @@ public class FruitManagerUI : MonoBehaviour
 {
     [Header(" Elements ")]
     [SerializeField] private Image nextFruitImage;
-    [SerializeField] private TextMeshProUGUI nextFruitText;
     private FruitManager fruitManager;
     private void Awake()
     {
@@ -16,7 +15,7 @@ public class FruitManagerUI : MonoBehaviour
 
     private void Start()
     {
-        //fruitManager = GetComponent<FruitManager>();
+     
     }
 
     private void UpdateNextFruitImage()
