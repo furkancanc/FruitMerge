@@ -1699,6 +1699,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2408756925125564717, guid: 31f98d3ffef4b8e40aea323e75f76028, type: 3}
   m_PrefabInstance: {fileID: 1925074321}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1120249019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1120249020}
+  - component: {fileID: 1120249021}
+  m_Layer: 0
+  m_Name: Merge Push Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1120249020
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120249019}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1867364181}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1120249021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120249019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c361014a752aff24c8e705e004b46b88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushRadius: 3
+  pushMagnitude: 200
+  enableGizmos: 0
 --- !u!1 &1143288782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,6 +2655,7 @@ Transform:
   - {fileID: 31575010}
   - {fileID: 905361572}
   - {fileID: 483640810}
+  - {fileID: 1120249020}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1925074321
