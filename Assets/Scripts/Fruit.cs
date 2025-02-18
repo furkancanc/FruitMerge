@@ -14,6 +14,9 @@ public class Fruit : MonoBehaviour
     [Header(" Actions ")]
     public static Action<Fruit, Fruit> onCollisionWithFruit;
 
+    [Header("Effects")]
+    [SerializeField] private ParticleSystem mergeParticles;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,12 +26,6 @@ public class Fruit : MonoBehaviour
     private void AllowMerge()
     {
         canBeMerged = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void EnablePhysics()
@@ -76,6 +73,19 @@ public class Fruit : MonoBehaviour
             onCollisionWithFruit?.Invoke(this, otherFruit);
         }
     }
+    
+    public void Merge()
+    {
+        if (mergeParticles != null)
+        {
+            mergeParticles.transform.SetParent(null);
+            mergeParticles.Play();
+
+        }
+
+        Destroy(gameObject);
+    }
+
     public FruitType GetFruitType()
     {
         return fruitType;
