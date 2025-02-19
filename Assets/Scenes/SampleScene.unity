@@ -151,10 +151,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1773041114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 371.0325, y: -95.625}
+  m_SizeDelta: {x: 377.935, y: 131.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6024195
 MonoBehaviour:
@@ -500,10 +500,10 @@ RectTransform:
   - {fileID: 188256250}
   m_Father: {fileID: 961057301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 325, y: -406.875}
+  m_SizeDelta: {x: 590, y: 191.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128525471
 MonoBehaviour:
@@ -865,10 +865,10 @@ RectTransform:
   - {fileID: 1258781205}
   m_Father: {fileID: 128525470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 295, y: -123.390625}
+  m_SizeDelta: {x: 530, y: 75.71872}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &188256251
 MonoBehaviour:
@@ -937,10 +937,22 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.22
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2058797119}
+        m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
+        m_MethodName: SliderValueChangedCallback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &243708249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,7 +1062,7 @@ RectTransform:
   m_Father: {fileID: 1258781205}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2008,7 +2020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &784968684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2365,10 +2377,10 @@ RectTransform:
   - {fileID: 2022302390}
   m_Father: {fileID: 1773041114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 106.0325, y: -95.625}
+  m_SizeDelta: {x: 152.065, y: 131.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910863607
 MonoBehaviour:
@@ -3196,6 +3208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pushRadius: 3
+  minMaxPushMagnitude: {x: 0, y: 1000}
   pushMagnitude: 200
   enableGizmos: 0
 --- !u!1 &1143288782
@@ -4238,10 +4251,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 128525470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 295, y: -57.765633}
+  m_SizeDelta: {x: 530, y: 55.53127}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1484648963
 MonoBehaviour:
@@ -4375,7 +4388,7 @@ RectTransform:
   m_Father: {fileID: 880639686}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4905,10 +4918,10 @@ RectTransform:
   - {fileID: 6024194}
   m_Father: {fileID: 961057301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 325, y: -185.625}
+  m_SizeDelta: {x: 590, y: 191.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1773041115
 MonoBehaviour:
@@ -5028,10 +5041,10 @@ RectTransform:
   - {fileID: 2065543601}
   m_Father: {fileID: 961057301}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 325, y: -626.25}
+  m_SizeDelta: {x: 590, y: 187.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1811985076
 MonoBehaviour:
@@ -6072,6 +6085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resetProgressPrompt: {fileID: 1406025066}
+  pushMagnitudeSlider: {fileID: 188256252}
 --- !u!4 &2058797120
 Transform:
   m_ObjectHideFlags: 0
