@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,22 +9,35 @@ public class SettingsManager : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private GameObject resetProgressPrompt;
     [SerializeField] private Slider pushMagnitudeSlider;
+    [SerializeField] private Toggle sfxToggle;
 
     [Header("Actions")]
     public static Action<float> onPushMagnitudeChanged;
+    public static Action<bool> onSFXValueChanged;
 
     [Header("Data")]
     private const string lastPushMagnitudeKey = "lastPushMagnitude";
+    private const string sfxActiveKey= "sfxActiveKey";
+    private bool canSave;
 
     private void Awake()
     {
         LoadData();
     }
 
-    private void Start()
+    IEnumerator Start()
     {
         // Initialize the push magnitude value for the merge push effect
-        SliderValueChangedCallback();
+        Initialize();
+
+        yield return new WaitForSeconds(.5f);
+        canSave = true;
+    }
+
+    private void Initialize()
+    {
+        onPushMagnitudeChanged?.Invoke(pushMagnitudeSlider.value);
+        onSFXValueChanged?.Invoke(sfxToggle.isOn);
     }
 
     public void ResetProgressCallback()
@@ -49,13 +63,26 @@ public class SettingsManager : MonoBehaviour
         SaveData();
     }
 
+    public void ToggleCallback(bool sfxActive)
+    {
+        sfxToggle.isOn = sfxActive;
+        onSFXValueChanged?.Invoke(sfxActive);
+
+        SaveData();
+    }
+
     private void LoadData()
     {
         pushMagnitudeSlider.value = PlayerPrefs.GetFloat(lastPushMagnitudeKey);
+        sfxToggle.isOn = PlayerPrefs.GetInt(sfxActiveKey) == 1; 
     }
 
     private void SaveData()
     {
+        if (!canSave)
+            return;
+
         PlayerPrefs.SetFloat(lastPushMagnitudeKey, pushMagnitudeSlider.value);
+        PlayerPrefs.SetInt(sfxActiveKey, sfxToggle.isOn ? 1 : 0);
     }
 }
