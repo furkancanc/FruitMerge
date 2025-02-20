@@ -15,7 +15,5 @@ public class WallFixer : MonoBehaviour
 
         rightWall.transform.position = new Vector3(halfHorizontalFov + .5f, 0, 0);
         leftWall.transform.position = -rightWall.transform.position;
-
-        
     }
 }
