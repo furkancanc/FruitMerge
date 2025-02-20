@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 1412103894814235322}
   - component: {fileID: 103796235447750978}
   m_Layer: 0
-  m_Name: Fruit
+  m_Name: Base Object Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

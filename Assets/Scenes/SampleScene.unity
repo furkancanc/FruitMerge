@@ -1503,7 +1503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc3c7895dc7b0c844be67f5851f0f060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinData: {fileID: 11400000, guid: 7e3fb57050803f94aa8f508616363d7c, type: 2}
+  skinData: {fileID: 11400000, guid: 16254ce32b8eb36449e31a9c268410cc, type: 2}
   fruitsParent: {fileID: 1715091124}
   fruitSpawnLine: {fileID: 710433483}
   fruitsYSpawnPosition: 3.5
