@@ -180,11 +180,11 @@ public class FruitManager : MonoBehaviour
 
     private void MergeProcessedCallback(FruitType fruitType, Vector2 spawnPosition)
     {
-        for (int i = 0; i < skinData.GetSpawnablePrefabs().Length; ++i)
+        for (int i = 0; i < skinData.GetObjectPrefabs().Length; ++i)
         {
-            if (skinData.GetSpawnablePrefabs()[i].GetFruitType() == fruitType)
+            if (skinData.GetObjectPrefabs()[i].GetFruitType() == fruitType)
             {
-                SpawnMergedFruit(skinData.GetSpawnablePrefabs()[i], spawnPosition);
+                SpawnMergedFruit(skinData.GetObjectPrefabs()[i], spawnPosition);
                 break;
             }
         }
