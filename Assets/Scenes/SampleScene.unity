@@ -3219,7 +3219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c361014a752aff24c8e705e004b46b88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pushRadius: 3
+  pushRadius: 1.5
   minMaxPushMagnitude: {x: 0, y: 1000}
   pushMagnitude: 200
   enableGizmos: 0

@@ -46,10 +46,12 @@ public class DeadlineDisplay : MonoBehaviour
         {
             bool foundNearbyFruit = false;
         
-            for (int i = 0; i < fruitsParent.childCount; ++i)
+            for (int i = 0; i < fruitsParent.childCount - 1; ++i)
             {
-                float distance = Mathf.Abs(fruitsParent.GetChild(i).position.y - deadline.transform.position.y);
+                if (!fruitsParent.GetChild(i).GetComponent<Fruit>().HasCollided())
+                    continue;
 
+                float distance = Mathf.Abs(fruitsParent.GetChild(i).position.y - deadline.transform.position.y);
                 if (distance <= 1)
                 {
                     ShowDeadline();
