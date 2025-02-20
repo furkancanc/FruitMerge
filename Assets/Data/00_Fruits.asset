@@ -12,3 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c818ea733bef9d740b606f7be130e6f8, type: 3}
   m_Name: 00_Fruits
   m_EditorClassIdentifier: 
+  objectPrefabs:
+  - {fileID: 7020421702209908490, guid: d566007009a3a364b950696d2bdb08a0, type: 3}
+  - {fileID: 1556185457551038156, guid: 1235788226f01974ea1388000c99a28e, type: 3}
+  - {fileID: 9127543254455375998, guid: 34ef0a983f450b24fad9e1f6244c554b, type: 3}
+  - {fileID: 9127543254455375998, guid: ba45600bbaba33143a385e26b6259e7d, type: 3}
+  - {fileID: 9127543254455375998, guid: 4ca0f5b64ebbf4e44b2a28170e3dd1bf, type: 3}
+  - {fileID: 9127543254455375998, guid: 79af0b5f2e05a8b4fb72d813995cdcd5, type: 3}
+  - {fileID: 9127543254455375998, guid: a34c84ac8fc60a943a59be34cf3e5e29, type: 3}
+  - {fileID: 9127543254455375998, guid: 8d27f6646701a024f8d8b6512801b042, type: 3}
+  spawnablePrefabs:
+  - {fileID: 7020421702209908490, guid: d566007009a3a364b950696d2bdb08a0, type: 3}
+  - {fileID: 1556185457551038156, guid: 1235788226f01974ea1388000c99a28e, type: 3}
+  - {fileID: 9127543254455375998, guid: 34ef0a983f450b24fad9e1f6244c554b, type: 3}
+  - {fileID: 9127543254455375998, guid: ba45600bbaba33143a385e26b6259e7d, type: 3}

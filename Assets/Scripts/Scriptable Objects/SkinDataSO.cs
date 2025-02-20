@@ -5,4 +5,14 @@ public class SkinDataSO : ScriptableObject
 {
     [SerializeField] private Fruit[] objectPrefabs;
     [SerializeField] private Fruit[] spawnablePrefabs;
+
+    public Fruit[] GetObjectPrefabs()
+    {
+        return objectPrefabs;
+    }
+
+    public Fruit[] GetSpawnablePrefabs()
+    {
+        return spawnablePrefabs;
+    }
 }
