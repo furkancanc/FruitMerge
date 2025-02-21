@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -10,6 +11,9 @@ public class ShopManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
     private bool[] unlockedStates;
+
+    [Header("Actions")]
+    public static Action<SkinDataSO> onSkinSelected;
 
     private void Awake()
     {
@@ -55,12 +59,22 @@ public class ShopManager : MonoBehaviour
             }
         }
 
+        if (IsSkinUnlocked(skinButtonIndex))
+        {
+            onSkinSelected?.Invoke(skinDataSOs[skinButtonIndex]);
+        }
+
         ManagePurchaseButtonVisibility(skinButtonIndex);
     }
 
     private void ManagePurchaseButtonVisibility(int skinButtonIndex)
     {
-        purchaseButton.SetActive(!unlockedStates[skinButtonIndex]);
+        purchaseButton.SetActive(!IsSkinUnlocked(skinButtonIndex));
+    }
+
+    private bool IsSkinUnlocked(int skinButtonIndex)
+    {
+        return unlockedStates[skinButtonIndex];
     }
 
     private void LoadData()
