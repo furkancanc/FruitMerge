@@ -108,7 +108,9 @@ public class ShopManager : MonoBehaviour
                 unlockedValue = 1;
 
             unlockedStates[i] = unlockedValue == 1 ? true : false;
-;        }
+;       }
+
+        LoadLastSelectedSkin();
     }
 
     private void SaveData()
