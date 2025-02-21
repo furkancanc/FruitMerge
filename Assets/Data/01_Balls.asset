@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c818ea733bef9d740b606f7be130e6f8, type: 3}
   m_Name: 01_Balls
   m_EditorClassIdentifier: 
+  name: Balls
   objectPrefabs:
   - {fileID: 6630416459662250066, guid: 42517ca8e0f161d42bbef72f0b69a637, type: 3}
   - {fileID: 6630416459662250066, guid: c1fbdb45f542c6f439f1644bae83dd19, type: 3}

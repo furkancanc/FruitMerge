@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private SkinButton skinButtonPrefab;
     [SerializeField] private Transform skinButtonsParent;
     [SerializeField] private GameObject purchaseButton;
+    [SerializeField] private TextMeshProUGUI skinLabelText;
 
     [Header("Data")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
@@ -86,6 +88,13 @@ public class ShopManager : MonoBehaviour
         }
 
         ManagePurchaseButtonVisibility(skinButtonIndex);
+
+        UpdateSkinLabel(skinButtonIndex);
+    }
+
+    private void UpdateSkinLabel(int skinButtonIndex)
+    {
+        skinLabelText.text = skinDataSOs[skinButtonIndex].GetName();
     }
 
     private void ManagePurchaseButtonVisibility(int skinButtonIndex)
