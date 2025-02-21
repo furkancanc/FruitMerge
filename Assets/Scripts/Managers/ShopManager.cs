@@ -20,6 +20,29 @@ public class ShopManager : MonoBehaviour
         {
             SkinButton skinButtonInstance = Instantiate(skinButtonPrefab, skinButtonsParent);
             skinButtonInstance.Configure(skinDataSOs[i].GetObjectPrefabs()[0].GetSprite());
+
+            if (i == 0)
+                skinButtonInstance.Select();
+
+            int j = i;
+            skinButtonInstance.GetButton().onClick.AddListener(() => SkinButtonClickedCallback(j));
+        }
+    }
+
+    private void SkinButtonClickedCallback(int skinButtonIndex)
+    {
+        for (int i = 0; i < skinButtonsParent.childCount; ++i)
+        {
+            SkinButton currentSkinButton = skinButtonsParent.GetChild(i).GetComponent<SkinButton>();
+
+            if (i == skinButtonIndex)
+            {
+                currentSkinButton.Select();
+            }
+            else
+            {
+                currentSkinButton.Unselect();
+            }
         }
     }
 }

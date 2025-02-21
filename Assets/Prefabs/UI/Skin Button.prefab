@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8455728399652981736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -52,13 +52,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2218238208662677423}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.98823535, g: 0.3019608, b: 0.30588236, a: 1}
+  m_Color: {r: 0.80392164, g: 0.3529412, b: 0.3254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ced37d0970bb549867f14abc2cd705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 1854665194905548724}
   iconImage: {fileID: 6153455963984561693}
   selectionOutline: {fileID: 2218238208662677423}
 --- !u!1 &8280289298437462788
