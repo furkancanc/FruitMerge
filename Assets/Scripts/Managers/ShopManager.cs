@@ -1,5 +1,4 @@
 using System;
-using UnityEditor.Overlays;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -12,6 +11,8 @@ public class ShopManager : MonoBehaviour
     [Header("Data")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
     private bool[] unlockedStates;
+    private const string skinButtonKey = "SkinButton_";
+    private const string lastSelectedSkinKey = "LastSelectedSkin";
 
     [Header("Variable")]
     private int lastSelectedSkin;
@@ -22,12 +23,12 @@ public class ShopManager : MonoBehaviour
     private void Awake()
     {
         unlockedStates = new bool[skinDataSOs.Length];
-        LoadData();
     }
 
     private void Start()
     {
         Initialize();
+        LoadData();
     }
 
     public void PurchaseButtonCallback()
@@ -52,15 +53,13 @@ public class ShopManager : MonoBehaviour
             SkinButton skinButtonInstance = Instantiate(skinButtonPrefab, skinButtonsParent);
             skinButtonInstance.Configure(skinDataSOs[i].GetObjectPrefabs()[0].GetSprite());
 
-            if (i == 0)
-                skinButtonInstance.Select();
 
             int j = i;
             skinButtonInstance.GetButton().onClick.AddListener(() => SkinButtonClickedCallback(j));
         }
     }
 
-    private void SkinButtonClickedCallback(int skinButtonIndex)
+    private void SkinButtonClickedCallback(int skinButtonIndex, bool shouldSaveLastSkin = true)
     {
         lastSelectedSkin = skinButtonIndex;
 
@@ -81,6 +80,9 @@ public class ShopManager : MonoBehaviour
         if (IsSkinUnlocked(skinButtonIndex))
         {
             onSkinSelected?.Invoke(skinDataSOs[skinButtonIndex]);
+
+            if (shouldSaveLastSkin)
+                SaveLastSelectedSkin();
         }
 
         ManagePurchaseButtonVisibility(skinButtonIndex);
@@ -100,7 +102,7 @@ public class ShopManager : MonoBehaviour
     {
         for (int i = 0; i < unlockedStates.Length; ++i)
         {
-            int unlockedValue = PlayerPrefs.GetInt("SkinButton_" + i);
+            int unlockedValue = PlayerPrefs.GetInt(skinButtonKey + i);
 
             if (i == 0)
                 unlockedValue = 1;
@@ -111,6 +113,21 @@ public class ShopManager : MonoBehaviour
 
     private void SaveData()
     {
+        for (int i = 0; i < unlockedStates.Length; ++i)
+        {
+            int unlockedValue = unlockedStates[i] ? 1 : 0;
+            PlayerPrefs.SetInt(skinButtonKey + i, unlockedValue);
+        }
+    }
 
+    private void LoadLastSelectedSkin()
+    {
+        int lastSelectedSkinIndex = PlayerPrefs.GetInt(lastSelectedSkinKey);
+        SkinButtonClickedCallback(lastSelectedSkinIndex, false);
+    }
+
+    private void SaveLastSelectedSkin()
+    {
+        PlayerPrefs.SetInt(lastSelectedSkinKey, lastSelectedSkin);
     }
 }
