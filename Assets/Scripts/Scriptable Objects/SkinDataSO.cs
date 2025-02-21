@@ -5,6 +5,7 @@ public class SkinDataSO : ScriptableObject
 {
     [Header("Settings")]
     [SerializeField] private new string name;
+    [SerializeField] private int price;
 
     [Header("Data")]
     [SerializeField] private Fruit[] objectPrefabs;
@@ -13,6 +14,11 @@ public class SkinDataSO : ScriptableObject
     public string GetName()
     {
         return name;
+    }
+
+    public int GetPrice()
+    {
+        return price;
     }
 
     public Fruit[] GetObjectPrefabs()

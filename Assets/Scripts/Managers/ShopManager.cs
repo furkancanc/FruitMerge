@@ -36,6 +36,11 @@ public class ShopManager : MonoBehaviour
     public void PurchaseButtonCallback()
     {
         // Check if we have enough coins
+        if (!CoinManager.instance.CanPurchase(skinDataSOs[lastSelectedSkin].GetPrice()))
+        {
+            Debug.Log("You have not enough coins to purchase.");
+            return;
+        }
 
         // If that's the case, unlock the skin
         unlockedStates[lastSelectedSkin] = true;
