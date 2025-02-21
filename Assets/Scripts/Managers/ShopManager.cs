@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 public class ShopManager : MonoBehaviour
@@ -12,6 +13,9 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private SkinDataSO[] skinDataSOs;
     private bool[] unlockedStates;
 
+    [Header("Variable")]
+    private int lastSelectedSkin;
+
     [Header("Actions")]
     public static Action<SkinDataSO> onSkinSelected;
 
@@ -24,6 +28,19 @@ public class ShopManager : MonoBehaviour
     private void Start()
     {
         Initialize();
+    }
+
+    public void PurchaseButtonCallback()
+    {
+        // Check if we have enough coins
+
+        // If that's the case, unlock the skin
+        unlockedStates[lastSelectedSkin] = true;
+
+        SaveData();
+
+        // Calling the method to trigget the event & hide the purchase button
+        SkinButtonClickedCallback(lastSelectedSkin);
     }
 
     private void Initialize()
@@ -45,6 +62,8 @@ public class ShopManager : MonoBehaviour
 
     private void SkinButtonClickedCallback(int skinButtonIndex)
     {
+        lastSelectedSkin = skinButtonIndex;
+
         for (int i = 0; i < skinButtonsParent.childCount; ++i)
         {
             SkinButton currentSkinButton = skinButtonsParent.GetChild(i).GetComponent<SkinButton>();
@@ -88,5 +107,10 @@ public class ShopManager : MonoBehaviour
 
             unlockedStates[i] = unlockedValue == 1 ? true : false;
 ;        }
+    }
+
+    private void SaveData()
+    {
+
     }
 }
