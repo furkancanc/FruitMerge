@@ -5978,6 +5978,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skinButtonPrefab: {fileID: 6934510826530009401, guid: be36de0f8e9d63c4eb17b310af8d068e, type: 3}
   skinButtonsParent: {fileID: 1701890757}
+  purchaseButton: {fileID: 832341106}
   skinDataSOs:
   - {fileID: 11400000, guid: 7e3fb57050803f94aa8f508616363d7c, type: 2}
   - {fileID: 11400000, guid: 16254ce32b8eb36449e31a9c268410cc, type: 2}
@@ -6090,7 +6091,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.00015049103, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1701890758

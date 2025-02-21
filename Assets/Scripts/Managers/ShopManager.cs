@@ -5,9 +5,17 @@ public class ShopManager : MonoBehaviour
     [Header("Elements")]
     [SerializeField] private SkinButton skinButtonPrefab;
     [SerializeField] private Transform skinButtonsParent;
+    [SerializeField] private GameObject purchaseButton;
 
     [Header("Data")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
+    private bool[] unlockedStates;
+
+    private void Awake()
+    {
+        unlockedStates = new bool[skinDataSOs.Length];
+        LoadData();
+    }
 
     private void Start()
     {
@@ -16,6 +24,8 @@ public class ShopManager : MonoBehaviour
 
     private void Initialize()
     {
+        purchaseButton.SetActive(false);
+
         for (int i = 0; i < skinDataSOs.Length; ++i)
         {
             SkinButton skinButtonInstance = Instantiate(skinButtonPrefab, skinButtonsParent);
@@ -44,5 +54,25 @@ public class ShopManager : MonoBehaviour
                 currentSkinButton.Unselect();
             }
         }
+
+        ManagePurchaseButtonVisibility(skinButtonIndex);
+    }
+
+    private void ManagePurchaseButtonVisibility(int skinButtonIndex)
+    {
+        purchaseButton.SetActive(!unlockedStates[skinButtonIndex]);
+    }
+
+    private void LoadData()
+    {
+        for (int i = 0; i < unlockedStates.Length; ++i)
+        {
+            int unlockedValue = PlayerPrefs.GetInt("SkinButton_" + i);
+
+            if (i == 0)
+                unlockedValue = 1;
+
+            unlockedStates[i] = unlockedValue == 1 ? true : false;
+;        }
     }
 }
