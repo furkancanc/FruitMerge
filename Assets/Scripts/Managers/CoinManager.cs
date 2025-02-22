@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CoinManager : MonoBehaviour
@@ -20,6 +21,7 @@ public class CoinManager : MonoBehaviour
         }
 
         LoadData();
+        UpdateCoinTexts();
     }
 
     public void AddCoins(int amount)
@@ -39,6 +41,12 @@ public class CoinManager : MonoBehaviour
 
     private void UpdateCoinTexts()
     {
+        GameObject[] coinTextGO = GameObject.FindGameObjectsWithTag("CoinText");
+
+        for (int i = 0; i < coinTextGO.Length; i++)
+        {
+            coinTextGO[i].GetComponent<TextMeshProUGUI>().text = coins.ToString();
+        }
 
     }
 
