@@ -17,5 +17,12 @@ public class PowerupManager : MonoBehaviour
     public void BlastButtonCallback()
     {
         Debug.Log("Blast!!!");
+
+        Fruit[] smallFruits = FruitManager.instance.GetSmallFruits();
+
+        foreach (Fruit smallFruit in smallFruits)
+        {
+            smallFruit.Merge();
+        }
     }
 }
