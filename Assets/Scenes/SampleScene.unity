@@ -7012,6 +7012,7 @@ MonoBehaviour:
   skinButtonsParent: {fileID: 1701890757}
   purchaseButton: {fileID: 832341106}
   skinLabelText: {fileID: 419743314}
+  skinPriceText: {fileID: 1632825014}
   skinDataSOs:
   - {fileID: 11400000, guid: 7e3fb57050803f94aa8f508616363d7c, type: 2}
   - {fileID: 11400000, guid: 16254ce32b8eb36449e31a9c268410cc, type: 2}

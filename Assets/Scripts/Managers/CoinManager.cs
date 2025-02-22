@@ -35,7 +35,7 @@ public class CoinManager : MonoBehaviour
 
     private void MergeProcessedCallback(FruitType fruitType, Vector2 fruitSpawnPos)
     {
-        int coinsToAdd = (int)fruitType + 1;
+        int coinsToAdd = (int)fruitType;
         AddCoins(coinsToAdd);
     }
 

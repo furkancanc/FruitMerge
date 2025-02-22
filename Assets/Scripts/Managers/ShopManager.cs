@@ -10,6 +10,7 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private Transform skinButtonsParent;
     [SerializeField] private GameObject purchaseButton;
     [SerializeField] private TextMeshProUGUI skinLabelText;
+    [SerializeField] private TextMeshProUGUI skinPriceText;
 
     [Header("Data")]
     [SerializeField] private SkinDataSO[] skinDataSOs;
@@ -36,9 +37,8 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseButtonCallback()
     {
-        // Check if we have enough coins
+        CoinManager.instance.AddCoins(-skinDataSOs[lastSelectedSkin].GetPrice());
      
-
         // If that's the case, unlock the skin
         unlockedStates[lastSelectedSkin] = true;
 
@@ -105,6 +105,9 @@ public class ShopManager : MonoBehaviour
         purchaseButton.SetActive(!IsSkinUnlocked(skinButtonIndex));
 
         purchaseButton.GetComponent<Button>().interactable = canPurchase;
+
+        // Update the price text
+        skinPriceText.text = skinDataSOs[skinButtonIndex].GetPrice().ToString();
     }
 
     private bool IsSkinUnlocked(int skinButtonIndex)
