@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -22,6 +23,20 @@ public class CoinManager : MonoBehaviour
 
         LoadData();
         UpdateCoinTexts();
+
+        MergeManager.onMergeProcessed += MergeProcessedCallback;
+    }
+
+
+    private void OnDestroy()
+    {
+        MergeManager.onMergeProcessed -= MergeProcessedCallback;
+    }
+
+    private void MergeProcessedCallback(FruitType fruitType, Vector2 fruitSpawnPos)
+    {
+        int coinsToAdd = (int)fruitType + 1;
+        AddCoins(coinsToAdd);
     }
 
     public void AddCoins(int amount)
@@ -41,13 +56,12 @@ public class CoinManager : MonoBehaviour
 
     private void UpdateCoinTexts()
     {
-        GameObject[] coinTextGO = GameObject.FindGameObjectsWithTag("CoinText");
+        CoinText[] coinTexts = Resources.FindObjectsOfTypeAll(typeof(CoinText)) as CoinText[];
 
-        for (int i = 0; i < coinTextGO.Length; i++)
+        for (int i = 0; i < coinTexts.Length; i++)
         {
-            coinTextGO[i].GetComponent<TextMeshProUGUI>().text = coins.ToString();
+            coinTexts[i].UpdateText(coins.ToString());
         }
-
     }
 
     private void LoadData() => coins = PlayerPrefs.GetInt(coinsKey);
