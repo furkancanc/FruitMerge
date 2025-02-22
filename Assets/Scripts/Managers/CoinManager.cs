@@ -10,6 +10,8 @@ public class CoinManager : MonoBehaviour
     private int coins;
     private const string coinsKey = "coins";
 
+    [Header("Actions")]
+    public static Action onCoinsUpdated;
     private void Awake()
     {
         if (instance == null)
@@ -45,7 +47,6 @@ public class CoinManager : MonoBehaviour
         coins = Mathf.Max(0, coins);
 
         SaveData();
-
         UpdateCoinTexts();
     }
 
@@ -62,8 +63,9 @@ public class CoinManager : MonoBehaviour
         {
             coinTexts[i].UpdateText(coins.ToString());
         }
+        onCoinsUpdated?.Invoke();
     }
 
-    private void LoadData() => coins = PlayerPrefs.GetInt(coinsKey);
+    private void LoadData() => coins = PlayerPrefs.GetInt(coinsKey, 0);
     private void SaveData() => PlayerPrefs.SetInt(coinsKey, coins);
 }
