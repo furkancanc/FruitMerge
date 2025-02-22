@@ -89,12 +89,21 @@ public class FruitManager : MonoBehaviour
 
     private void MouseDownCallback()
     {
+        if (!IsClickDetected())
+            return;
+
         DisplayLine();
         PlaceLineAtClickedPosition();
 
         SpawnFruit();
 
         isControlling = true;
+    }
+
+    private bool IsClickDetected()
+    {
+        Vector2 mousePos = Input.mousePosition;
+        return mousePos.y > Screen.height / 4;
     }
 
     private void MouseDragCallback()
