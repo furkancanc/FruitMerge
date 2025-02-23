@@ -5125,6 +5125,9 @@ MonoBehaviour:
   - {fileID: 717359813}
   - {fileID: 322064798}
   levelButtonPrefab: {fileID: 8525553673333607098, guid: 5f5a7d4763faf5446888a4cab27252db, type: 3}
+  levelDatas:
+  - {fileID: 11400000, guid: 48ed970af5a54ec4fab8d605cb5182cb, type: 2}
+  - {fileID: 11400000, guid: 226f8dbd6b76d9947a7de56307810e15, type: 2}
 --- !u!1 &1120249019
 GameObject:
   m_ObjectHideFlags: 0

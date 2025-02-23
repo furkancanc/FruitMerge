@@ -6,6 +6,9 @@ public class LevelMapManager : MonoBehaviour
     [SerializeField] private RectTransform mapContent;
     [SerializeField] private RectTransform[] levelButtonParents;
     [SerializeField] private LevelButton levelButtonPrefab;
+
+    [Header("Data")]
+    [SerializeField] private LevelDataSO[] levelDatas;
     private void Start()
     {
         Initialize();
@@ -21,7 +24,7 @@ public class LevelMapManager : MonoBehaviour
 
     private void CreateLevelButtons()
     {
-        for (int i = 0; i < levelButtonParents.Length; ++i)
+        for (int i = 0; i < levelDatas.Length; ++i)
         {
             CreateLevelButton(i, levelButtonParents[i]);
         } 
@@ -31,5 +34,12 @@ public class LevelMapManager : MonoBehaviour
     {
         LevelButton levelButton = Instantiate(levelButtonPrefab, levelButtonParent);
         levelButton.Configure(buttonIndex);
+
+        levelButton.GetButton().onClick.AddListener(() => LevelButtonClicked(buttonIndex));
+    }
+
+    private void LevelButtonClicked(int buttonIndex)
+    {
+
     }
 }

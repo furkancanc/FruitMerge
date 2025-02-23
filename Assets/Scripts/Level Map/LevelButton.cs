@@ -6,6 +6,7 @@ public class LevelButton : MonoBehaviour
 {
     [Header("Elements")]
     [SerializeField] private TextMeshProUGUI levelIndexText;
+    [SerializeField] private Button button;
 
     private void Start()
     {
@@ -16,4 +17,6 @@ public class LevelButton : MonoBehaviour
     {
         levelIndexText.text = levelIndex.ToString();
     }
+
+    public Button GetButton() => button;
 }
