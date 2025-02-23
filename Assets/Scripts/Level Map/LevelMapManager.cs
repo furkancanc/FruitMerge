@@ -14,6 +14,16 @@ public class LevelMapManager : MonoBehaviour
     [Header("Actions")]
     public static Action onLevelButtonClicked;
 
+    private void Awake()
+    {
+        UIManager.onMapOpened += UpdateLevelButtonsInteractability;
+    }
+
+    private void OnDestroy()
+    {
+        UIManager.onMapOpened -= UpdateLevelButtonsInteractability;
+    }
+
     private void Start()
     {
         Initialize();

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject shopPanel;
     [SerializeField] private GameObject mapPanel;
+
+    [Header("Actions")]
+    public static Action onMapOpened;
 
     private void Awake()
     {
@@ -91,6 +95,10 @@ public class UIManager : MonoBehaviour
 
     public void ShopButtonCallback() => shopPanel.SetActive(true);
     public void CloseShopPanel() => shopPanel.SetActive(false);
-    public void OpenMap() => mapPanel.SetActive(true);
+    public void OpenMap()
+    {
+        mapPanel.SetActive(true);
+        onMapOpened?.Invoke();
+    }
     public void CloseMap() => mapPanel.SetActive(false);
 }
