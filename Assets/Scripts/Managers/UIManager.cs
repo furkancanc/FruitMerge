@@ -9,15 +9,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject shopPanel;
+    [SerializeField] private GameObject mapPanel;
 
     private void Awake()
     {
         GameManager.onGameStateChanged += GameStateChangedCallback;
+        LevelMapManager.onLevelButtonClicked += LevelButtonCallback;
     }
 
     private void OnDestroy()
     {
         GameManager.onGameStateChanged -= GameStateChangedCallback;
+        LevelMapManager.onLevelButtonClicked -= LevelButtonCallback;
     }
 
     private void Start()
@@ -47,6 +50,7 @@ public class UIManager : MonoBehaviour
         gamePanel.SetActive(false);
         gameOverPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        mapPanel.SetActive(false);
     }
 
     private void SetGame()
@@ -54,6 +58,7 @@ public class UIManager : MonoBehaviour
         gamePanel.SetActive(true);
         menuPanel.SetActive(false);
         gameOverPanel.SetActive(false);
+        mapPanel.SetActive(false);
     }
 
     private void SetGameOver()
@@ -63,7 +68,7 @@ public class UIManager : MonoBehaviour
         gamePanel.SetActive(false);
     }
 
-    public void PlayButtonCallback()
+    public void LevelButtonCallback()
     {
         GameManager.instance.SetGameState();
         SetGame();
@@ -86,4 +91,6 @@ public class UIManager : MonoBehaviour
 
     public void ShopButtonCallback() => shopPanel.SetActive(true);
     public void CloseShopPanel() => shopPanel.SetActive(false);
+    public void OpenMap() => mapPanel.SetActive(true);
+    public void CloseMap() => mapPanel.SetActive(false);
 }

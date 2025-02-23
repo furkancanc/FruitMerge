@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class LevelMapManager : MonoBehaviour
@@ -9,6 +10,10 @@ public class LevelMapManager : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] private LevelDataSO[] levelDatas;
+
+    [Header("Actions")]
+    public static Action onLevelButtonClicked;
+
     private void Start()
     {
         Initialize();
@@ -40,6 +45,17 @@ public class LevelMapManager : MonoBehaviour
 
     private void LevelButtonClicked(int buttonIndex)
     {
+        while (transform.childCount > 0)
+        {
+            Transform t = transform.GetChild(0);
+            t.SetParent(null);
+            Destroy(t.gameObject);
+        }
 
+        // Spawn the level prefab
+        Instantiate(levelDatas[buttonIndex].GetLevel(), transform);
+
+        // Start the game
+        onLevelButtonClicked?.Invoke();
     }
 }

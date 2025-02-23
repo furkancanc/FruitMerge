@@ -304,6 +304,7 @@ MonoBehaviour:
   gameOverPanel: {fileID: 1055994472}
   settingsPanel: {fileID: 784968683}
   shopPanel: {fileID: 1556938635}
+  mapPanel: {fileID: 1280230906}
 --- !u!1 &64067766
 GameObject:
   m_ObjectHideFlags: 0
