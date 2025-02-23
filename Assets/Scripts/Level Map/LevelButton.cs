@@ -17,6 +17,7 @@ public class LevelButton : MonoBehaviour
     {
         levelIndexText.text = levelIndex.ToString();
     }
-
+    public void Enable() => button.interactable = true;
     public Button GetButton() => button;
+
 }

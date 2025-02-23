@@ -38,7 +38,7 @@ public class LevelMapManager : MonoBehaviour
     private void CreateLevelButton(int buttonIndex, Transform levelButtonParent)
     {
         LevelButton levelButton = Instantiate(levelButtonPrefab, levelButtonParent);
-        levelButton.Configure(buttonIndex);
+        levelButton.Configure(buttonIndex + 1);
 
         levelButton.GetButton().onClick.AddListener(() => LevelButtonClicked(buttonIndex));
     }
@@ -57,5 +57,18 @@ public class LevelMapManager : MonoBehaviour
 
         // Start the game
         onLevelButtonClicked?.Invoke();
+    }
+
+    private void UpdateLevelButtonsInteractability()
+    {
+        int bestScore = ScoreManager.instance.GetBestScore();
+
+        for (int i = 0; i < levelDatas.Length; ++i)
+        {
+            if (levelDatas[i].GetRequiredHighscore() <= bestScore)
+            {
+                levelButtonParents[i].GetChild(0).GetComponent<LevelButton>().Enable();
+            }
+        }
     }
 }

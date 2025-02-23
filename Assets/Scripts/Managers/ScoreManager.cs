@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static ScoreManager instance;
+
     [Header("Elements")]
     [SerializeField] private TextMeshProUGUI gameScoreText;
     [SerializeField] private TextMeshProUGUI menuBestScoreText;
@@ -17,6 +19,11 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
         LoadData();
 
         MergeManager.onMergeProcessed += MergeProcessedCallback;
@@ -51,6 +58,11 @@ public class ScoreManager : MonoBehaviour
     private void UpdateBestScoreText()
     {
         menuBestScoreText.text = bestScore.ToString();
+    }
+
+    public int GetBestScore()
+    {
+        return bestScore;
     }
 
     private void GameStateChangedCallback(GameState gameState)
