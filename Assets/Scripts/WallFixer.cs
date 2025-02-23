@@ -8,6 +8,11 @@ public class WallFixer : MonoBehaviour
 
     private void Start()
     {
+        FixWalls();
+    }
+
+    private void FixWalls()
+    {
         float aspectRatio = (float)Screen.height / Screen.width;
 
         Camera mainCamera = Camera.main;
