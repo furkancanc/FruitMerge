@@ -5260,7 +5260,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapContent: {fileID: 1884859449}
-  levelButtonParents: []
+  levelButtonParents:
+  - {fileID: 1984005021}
+  - {fileID: 684040035}
+  - {fileID: 189816263}
+  - {fileID: 1678833542}
+  - {fileID: 1636301750}
+  - {fileID: 1516186940}
+  - {fileID: 1097189705}
+  - {fileID: 360845827}
+  - {fileID: 944793212}
+  - {fileID: 1909284243}
+  - {fileID: 1273231873}
+  - {fileID: 1255994496}
+  - {fileID: 580741426}
+  - {fileID: 717359813}
+  - {fileID: 322064798}
+  levelButtonPrefab: {fileID: 8525553673333607098, guid: 5f5a7d4763faf5446888a4cab27252db, type: 3}
 --- !u!1 &1120249019
 GameObject:
   m_ObjectHideFlags: 0
@@ -9431,7 +9447,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 3838}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1884859450
