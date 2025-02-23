@@ -4,6 +4,7 @@ public class LevelMapManager : MonoBehaviour
 {
     [Header("Elements")]
     [SerializeField] private RectTransform mapContent;
+    [SerializeField] private RectTransform[] levelButtonParents; 
 
     private void Start()
     {
