@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
 using LootLocker.Requests;
+using TMPro;
 
 public class Leaderboard : MonoBehaviour
 {
     public static Leaderboard instance;
+
+    [Header("Elements")]
+    [SerializeField] private TextMeshProUGUI leaderboardText;
 
     [Header("Settings")]
     [SerializeField] private string leaderboardKey;
@@ -53,5 +57,31 @@ public class Leaderboard : MonoBehaviour
         });
 
         yield return null;
+    }
+
+    IEnumerator FetchScoresCoroutine()
+    {
+        bool done = false;
+
+        LootLockerSDKManager.GetScoreList(leaderboardKey, 10, (response) =>
+        {
+            if (response.success)
+            {
+                LootLockerLeaderboardMember[] members = response.items;
+
+                leaderboardText.text = "Names - Scores\n";
+
+                for (int i = 0; i < members.Length; ++i)
+                {
+                    string playerName = GetPlayerName(members[i]);
+                    leaderboardText.text += playerName + " - " + members[i].score + "\n";
+                }
+            }
+            else
+            {
+                Debug.Log("Failed to fetch leaderboard...");
+                done = true;
+            }
+        });
     }
 }
