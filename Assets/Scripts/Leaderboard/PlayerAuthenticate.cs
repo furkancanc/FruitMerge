@@ -3,7 +3,8 @@ using LootLocker.Requests;
 using System.Collections;
 public class PlayerAuthenticate : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public string PlayerId { get; private set; }
+
     void Start()
     {
         StartCoroutine(LoginCoroutine());
@@ -18,6 +19,8 @@ public class PlayerAuthenticate : MonoBehaviour
             if(response.success)
             {
                 Debug.Log("Connected !");
+                PlayerId = response.player_id.ToString();
+
                 done = true;
             }
             else
@@ -28,5 +31,10 @@ public class PlayerAuthenticate : MonoBehaviour
         });
 
         yield return new WaitWhile(() => done == true);
+    }
+
+    public string GetPlayerId()
+    {
+        return playerId;
     }
 }
