@@ -32,9 +32,4 @@ public class PlayerAuthenticate : MonoBehaviour
 
         yield return new WaitWhile(() => done == true);
     }
-
-    public string GetPlayerId()
-    {
-        return playerId;
-    }
 }
