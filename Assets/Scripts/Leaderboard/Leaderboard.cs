@@ -59,6 +59,12 @@ public class Leaderboard : MonoBehaviour
         yield return null;
     }
 
+    [NaughtyAttributes.Button]
+    private void FetchScores()
+    {
+        StartCoroutine(FetchScoresCoroutine());
+    }
+
     IEnumerator FetchScoresCoroutine()
     {
         bool done = false;
@@ -76,6 +82,8 @@ public class Leaderboard : MonoBehaviour
                     string playerName = GetPlayerName(members[i]);
                     leaderboardText.text += playerName + " - " + members[i].score + "\n";
                 }
+
+                done = true;
             }
             else
             {
@@ -83,5 +91,19 @@ public class Leaderboard : MonoBehaviour
                 done = true;
             }
         });
+
+        yield return new WaitWhile(() => done == true);
+    }
+
+    private string GetPlayerName(LootLockerLeaderboardMember member)
+    {
+        string playerName = member.member_id;
+
+        if (member.player.name.Length > 0)
+        {
+            playerName = member.player.name;
+        }
+
+        return playerName;
     }
 }
