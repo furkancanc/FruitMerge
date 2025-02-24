@@ -1,3 +1,4 @@
+using LootLocker.Requests;
 using UnityEngine;
 
 public class PlayerLeaderboard : MonoBehaviour
@@ -20,5 +21,20 @@ public class PlayerLeaderboard : MonoBehaviour
 
         Leaderboard.instance.SubmitScore(playerId, score);
 
+    }
+
+    public void SetPlayerName(string playerName)
+    {
+        LootLockerSDKManager.SetPlayerName(playerName, (response) => 
+        {
+            if (response.success)
+            {
+                Debug.Log("Player name has been set : " + playerName);
+            }
+            else
+            {
+                Debug.Log("Error setting the player name...");
+            }
+        });
     }
 }
