@@ -2,15 +2,32 @@ using UnityEngine;
 
 public class Eyes : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [Header("Elements")]
+    [SerializeField] private Transform rightEye;
+    [SerializeField] private Transform leftEye;
+    [SerializeField] private Transform rightPupil;
+    [SerializeField] private Transform leftPupil;
+
+    [Header("Settings")]
+    [SerializeField] private float maxMoveMagnitude;
+
+    private void Update()
     {
-        
+        MoveEyes();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void MoveEyes()
     {
-        
+        Vector3 targetPos = Vector3.zero;
+
+        Vector3 rightPupilDirection = (targetPos - rightEye.position).normalized;
+        Vector3 rightPupilTargetLocalPosition = rightPupilDirection * maxMoveMagnitude;
+
+        rightPupil.localPosition = rightPupilTargetLocalPosition;
+
+        Vector3 leftPupilDirection = (targetPos - leftEye.position).normalized;
+        Vector3 leftPupilTargetLocalPosition = leftPupilDirection * maxMoveMagnitude;
+
+        leftPupil.localPosition = leftPupilTargetLocalPosition;
     }
 }
