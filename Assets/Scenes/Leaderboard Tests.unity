@@ -664,6 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468329454}
   - component: {fileID: 1468329453}
+  - component: {fileID: 1468329455}
   m_Layer: 0
   m_Name: Leaderboard
   m_TagString: Untagged
@@ -700,6 +701,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1468329455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468329452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c38db9b572499074f8d863d70624eb1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memberContainerPrefab: {fileID: 1150908766967589306, guid: 7910fe366e0b35f4bb8cac567727c3e9, type: 3}
+  memberContainersParent: {fileID: 1836458662}
 --- !u!1 &1597579887
 GameObject:
   m_ObjectHideFlags: 0

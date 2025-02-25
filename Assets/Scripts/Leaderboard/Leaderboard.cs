@@ -98,16 +98,4 @@ public class Leaderboard : MonoBehaviour
 
         yield return new WaitWhile(() => done == true);
     }
-
-    private string GetPlayerName(LootLockerLeaderboardMember member)
-    {
-        string playerName = member.member_id;
-
-        if (member.player.name.Length > 0)
-        {
-            playerName = member.player.name;
-        }
-
-        return playerName;
-    }
 }
