@@ -8363,6 +8363,7 @@ MonoBehaviour:
   skinDataSOs:
   - {fileID: 11400000, guid: 7e3fb57050803f94aa8f508616363d7c, type: 2}
   - {fileID: 11400000, guid: 16254ce32b8eb36449e31a9c268410cc, type: 2}
+  - {fileID: 11400000, guid: f2d85c1cc70ac46468dd9a5debc9b9f0, type: 2}
 --- !u!1 &1672697902
 GameObject:
   m_ObjectHideFlags: 0
