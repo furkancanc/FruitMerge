@@ -29,6 +29,8 @@ public class FruitManager : MonoBehaviour
 
     [Header(" Actions ")]
     public static Action onNextFruitIndexSet;
+    public static Action<Fruit> onFruitSpawned;
+
     private void Awake()
     {
         MergeManager.onMergeProcessed += MergeProcessedCallback;
@@ -143,6 +145,8 @@ public class FruitManager : MonoBehaviour
 
         currentFruit = Instantiate(fruitToInstantiate, spawnPosition, Quaternion.identity, fruitsParent);
         SetNextFruitIndex();
+
+        onFruitSpawned?.Invoke(currentFruit);
     }
 
     private void SetNextFruitIndex()

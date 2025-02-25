@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Eyes : MonoBehaviour
@@ -10,15 +11,27 @@ public class Eyes : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float maxMoveMagnitude;
+    private Transform lastFruitTransform;
 
+    private void Awake()
+    {
+        FruitManager.onFruitSpawned += FruitSpawnedCallback;
+    }
+
+    private void OnDestroy()
+    {
+        FruitManager.onFruitSpawned -= FruitSpawnedCallback;
+    }
+   
     private void Update()
     {
-        MoveEyes();
+        if (lastFruitTransform != null)
+            MoveEyes();
     }
 
     private void MoveEyes()
     {
-        Vector3 targetPos = Vector3.zero;
+        Vector3 targetPos = lastFruitTransform.position;
 
         Vector3 rightPupilDirection = (targetPos - rightEye.position).normalized;
         Vector3 rightPupilTargetLocalPosition = rightPupilDirection * maxMoveMagnitude;
@@ -29,5 +42,9 @@ public class Eyes : MonoBehaviour
         Vector3 leftPupilTargetLocalPosition = leftPupilDirection * maxMoveMagnitude;
 
         leftPupil.localPosition = leftPupilTargetLocalPosition;
+    }
+    private void FruitSpawnedCallback(Fruit fruit)
+    {
+        lastFruitTransform = fruit.transform;
     }
 }
