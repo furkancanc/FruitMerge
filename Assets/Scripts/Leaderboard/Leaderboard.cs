@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using LootLocker.Requests;
 using TMPro;
+using System;
 
 public class Leaderboard : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Leaderboard : MonoBehaviour
     [Header("Settings")]
     [SerializeField] private string leaderboardKey;
 
+    public static Action<LootLockerLeaderboardMember[]> onLeaderboardFetched; 
     private void Awake()
     {
         if (instance == null)
@@ -75,13 +77,15 @@ public class Leaderboard : MonoBehaviour
             {
                 LootLockerLeaderboardMember[] members = response.items;
 
-                leaderboardText.text = "Names - Scores\n";
+                onLeaderboardFetched?.Invoke(members);
 
-                for (int i = 0; i < members.Length; ++i)
-                {
-                    string playerName = GetPlayerName(members[i]);
-                    leaderboardText.text += playerName + " - " + members[i].score + "\n";
-                }
+                //leaderboardText.text = "Names - Scores\n";
+
+                //for (int i = 0; i < members.Length; ++i)
+                //{
+                //    string playerName = GetPlayerName(members[i]);
+                //    leaderboardText.text += playerName + " - " + members[i].score + "\n";
+                //}
 
                 done = true;
             }
